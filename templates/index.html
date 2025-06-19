@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Forsys Chatbot</title>
+  <title>myGPT Chatbot</title>
   <style>
     /* Color palette derived from Forsys site: navy, cyan, white */
     :root {
@@ -88,22 +88,19 @@
     .user-msg {
       background: #12426b;
       align-self: flex-end;
-      /* Optional: add text-align for better look */
-      text-align: right;
     }
     .bot-msg {
       background: #1a3250;
       align-self: flex-start;
-      text-align: left;
     }
   </style>
 </head>
 <body>
 
 <div class="chatbot-container">
-  <div class="chat-header">Forsys GPT</div>
+  <div class="chat-header">myGPT</div>
   <div class="chat-messages" id="chat-messages">
-    <div class="bot-msg">Hi there! How can I assist you today?</div>
+    <div class="bot-msg">Welcome to myGPT!</div>
   </div>
   <div class="chat-input">
     <input type="text" id="user-input" placeholder="Type your message…" onkeydown="if(event.key==='Enter'){buttonClicked();}" />
@@ -123,6 +120,7 @@
     userMsgDiv.className = 'user-msg';
     userMsgDiv.textContent = userInput;
     chatMessages.appendChild(userMsgDiv);
+    userMsgDiv.scrollIntoView({ behavior: 'smooth', block: "nearest" });
 
     input.value = ""; // Clear input field after sending
 
@@ -140,9 +138,8 @@
       botMsgDiv.className = 'bot-msg';
       botMsgDiv.textContent = data.reply;
       chatMessages.appendChild(botMsgDiv);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+      botMsgDiv.scrollIntoView({ behavior: 'smooth', block: "nearest" });
     });
-    chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 </script>
 
